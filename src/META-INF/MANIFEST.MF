@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: slf4j-api.jar mysql-connector-java-bin.jar slf4j-jdk14.jar
+  mina-core-2.0.9.jar
+Main-Class: server.Start
+
