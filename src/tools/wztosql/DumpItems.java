@@ -41,7 +41,7 @@ public class DumpItems
     private final List<String> subMain;
     
     public DumpItems(final boolean update) throws Exception {
-        this.string = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz"));
+        this.string = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz"));
         this.cashStringData = this.string.getData("Cash.img");
         this.consumeStringData = this.string.getData("Consume.img");
         this.eqpStringData = this.string.getData("Eqp.img");
@@ -56,8 +56,8 @@ public class DumpItems
         this.subCon = new LinkedList<String>();
         this.subMain = new LinkedList<String>();
         this.update = update;
-        this.item = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Item.wz"));
-        this.character = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Character.wz"));
+        this.item = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Item.wz"));
+        this.character = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Character.wz"));
         if (this.item == null || this.string == null || this.character == null) {
             this.hadError = true;
         }

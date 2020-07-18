@@ -23,11 +23,11 @@ public class MapleDataProviderFactory
         return getWZ(in, true);
     }
     
-    public static File fileInWZPath(final String filename) {
+    public static File fileInwzPath(final String filename) {
         return new File(MapleDataProviderFactory.wzPath, filename);
     }
     
     static {
-        wzPath = System.getProperty("wzpath", "wz");
+        wzPath = System.getProperty("wzPath", "wz");
     }
 }

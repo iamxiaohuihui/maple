@@ -74,7 +74,7 @@ public class MapleReactorFactory
     }
     
     static {
-        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Reactor.wz"));
+        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Reactor.wz"));
         reactorStats = new HashMap<Integer, MapleReactorStats>();
     }
 }

@@ -18,7 +18,7 @@ public class LieDetectorScript
     
     public static Pair<String, String> getImageBytes() {
         try {
-            final URL url = new URL("http://localhost/captcha.php?verify=98818D40B83AECCFB7AFD7FD9653E1037519AC61");
+            final URL url = new URL(CAPTCHA_SERVER);
             final InputStream inputStream = url.openStream();
             final ByteArrayOutputStream output = new ByteArrayOutputStream();
             final byte[] buffer = new byte[1024];

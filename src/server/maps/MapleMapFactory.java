@@ -822,8 +822,8 @@ public class MapleMapFactory
     }
     
     static {
-        source = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Map.wz"));
-        nameData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")).getData("Map.img");
+        source = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Map.wz"));
+        nameData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz")).getData("Map.img");
         mapInfos = new HashMap<Integer, MapleNodes>();
         customLife = new HashMap<Integer, List<AbstractLoadedMapleLife>>();
     }

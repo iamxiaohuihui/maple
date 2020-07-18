@@ -36,10 +36,11 @@ import tools.MaplePacketCreator;
 import tools.Pair;
 import tools.data.input.LittleEndianAccessor;
 
-public class DamageParse
+public class    DamageParse
 {
     private static final int[] charges;
 
+    //普通攻击
     public static void applyAttack(AttackInfo attack, ISkill theSkill, MapleCharacter player, int attackCount, double maxDamagePerMonster, MapleStatEffect effect, AttackType attack_type) {
         if (!player.isAlive()) {
             player.getCheatTracker().registerOffense(CheatingOffense.人物死亡攻击);
@@ -345,6 +346,7 @@ public class DamageParse
         }
     }
 
+    //魔法伤害
     public static void applyAttackMagic(final AttackInfo attack, final ISkill theSkill, final MapleCharacter player, final MapleStatEffect effect) {
         if (!player.isAlive()) {
             player.getCheatTracker().registerOffense(CheatingOffense.人物死亡攻击);
@@ -773,7 +775,8 @@ public class DamageParse
         }
         return attack;
     }
-    
+
+    //远程普通攻击，技能攻击
     public static AttackInfo Modify_AttackCrit(final AttackInfo attack, final MapleCharacter chr, final int type) {
         final int CriticalRate = chr.getStat().passive_sharpeye_rate();
         final boolean shadow = (type == 2 && chr.getBuffedValue(MapleBuffStat.影分身) != null) || (type == 1 && chr.getBuffedValue(MapleBuffStat.MIRROR_IMAGE) != null);
@@ -998,7 +1001,9 @@ public class DamageParse
         ret.position = lea.readPos();
         return ret;
     }
-    
+
+
+    //最终BOSS、扎昆
     public static AttackInfo parseDmgR(final LittleEndianAccessor lea, final MapleCharacter chr) {
         final AttackInfo ret = new AttackInfo();
         lea.skip(1);

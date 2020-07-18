@@ -63,7 +63,7 @@ public class MobSkillFactory
     
     static {
         mobSkills = new HashMap<Pair<Integer, Integer>, MobSkill>();
-        dataSource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz"));
+        dataSource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Skill.wz"));
         skillRoot = MobSkillFactory.dataSource.getData("MobSkill.img");
     }
     

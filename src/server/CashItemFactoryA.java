@@ -60,7 +60,7 @@ public class CashItemFactoryA
             return CashItemFactoryA.cashPackages.get(itemId);
         }
         final List<CashItemInfoA> packageItems = new ArrayList<CashItemInfoA>();
-        final MapleDataProvider dataProvider = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("net.sf.cherry.wzpath") + "/Etc.wz"));
+        final MapleDataProvider dataProvider = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
         final MapleData a = dataProvider.getData("CashPackage.img");
         for (final MapleData b : a.getChildren()) {
             if (itemId == Integer.parseInt(b.getName())) {
@@ -106,7 +106,7 @@ public class CashItemFactoryA
         snLookup = new HashMap<Integer, Integer>();
         idLookup = new HashMap<Integer, Integer>();
         itemStats = new HashMap<Integer, CashItemInfoA>();
-        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
+        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
         commodities = CashItemFactoryA.data.getData(StringUtil.getLeftPaddedStr("Commodity.img", '0', 11));
         cashPackages = new HashMap<Integer, List<CashItemInfoA>>();
     }

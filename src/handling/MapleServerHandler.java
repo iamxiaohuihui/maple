@@ -371,7 +371,9 @@ public class MapleServerHandler extends IoHandlerAdapter implements MapleServerH
                 System.out.println(sb2.toString());
             }
         }
-        catch (RejectedExecutionException ex) {}
+        catch (RejectedExecutionException ex) {
+            ex.printStackTrace();
+        }
         catch (Exception e) {
             FileoutputUtil.outputFileError(FileoutputUtil.PacketEx_Log, e);
             e.printStackTrace();

@@ -31,8 +31,8 @@ public class DumpNpcNames
     }
     
     public void dumpNpcNameData() throws SQLException {
-        final File dataFile = new File(System.getProperty("wzpath") + "/Npc.wz");
-        final File strDataFile = new File(System.getProperty("wzpath") + "/String.wz");
+        final File dataFile = new File(System.getProperty("wzPath") + "/Npc.wz");
+        final File strDataFile = new File(System.getProperty("wzPath") + "/String.wz");
         final MapleDataProvider npcData = MapleDataProviderFactory.getDataProvider(dataFile);
         final MapleDataProvider stringDataWZ = MapleDataProviderFactory.getDataProvider(strDataFile);
         final MapleData npcStringData = stringDataWZ.getData("Npc.img");

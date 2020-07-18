@@ -60,7 +60,7 @@ public class DumpMobSkills
         this.id = 0;
         this.con = DatabaseConnection.getConnection();
         this.update = update;
-        this.skill = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz"));
+        this.skill = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Skill.wz"));
         if (this.skill == null) {
             this.hadError = true;
         }

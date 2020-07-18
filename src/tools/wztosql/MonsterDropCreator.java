@@ -35,9 +35,9 @@ public class MonsterDropCreator {
   
   protected static Map<Integer, Boolean> bossCache = new HashMap<>();
   
-  protected static MapleDataProvider data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz"));
+  protected static MapleDataProvider data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz"));
   
-  protected static MapleDataProvider mobData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Mob.wz"));
+  protected static MapleDataProvider mobData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Mob.wz"));
   
   public static void main(String[] args) throws FileNotFoundException, IOException, NotBoundException, InstanceAlreadyExistsException, MBeanRegistrationException, NotCompliantMBeanException, MalformedObjectNameException {
     System.out.println("准备提取怪物爆率数据!");

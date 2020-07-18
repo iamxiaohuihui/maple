@@ -254,9 +254,9 @@ public class MapleLifeFactory
     }
     
     static {
-        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Mob.wz"));
-        stringDataWZ = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz"));
-        etcDataWZ = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
+        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Mob.wz"));
+        stringDataWZ = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz"));
+        etcDataWZ = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
         mobStringData = MapleLifeFactory.stringDataWZ.getData("Mob.img");
         npcStringData = MapleLifeFactory.stringDataWZ.getData("Npc.img");
         npclocData = MapleLifeFactory.etcDataWZ.getData("NpcLocation.img");

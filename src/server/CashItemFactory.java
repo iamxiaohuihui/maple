@@ -34,8 +34,8 @@ public class CashItemFactory
         this.itemStats = new HashMap<Integer, CashItemInfo>();
         this.itemPackage = new HashMap<Integer, List<CashItemInfo>>();
         this.itemMods = new HashMap<Integer, CashItemInfo.CashModInfo>();
-        this.data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
-        this.itemStringInfo = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz"));
+        this.data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
+        this.itemStringInfo = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz"));
         this.idLookup = new HashMap<Integer, Integer>();
     }
     

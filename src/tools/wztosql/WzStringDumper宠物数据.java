@@ -11,7 +11,7 @@ import provider.MapleDataProviderFactory;
 public class WzStringDumper宠物数据
 {
     public static void main(final String[] args) throws FileNotFoundException, IOException {
-        final File stringFile = MapleDataProviderFactory.fileInWZPath("String.wz");
+        final File stringFile = MapleDataProviderFactory.fileInwzPath("String.wz");
         final MapleDataProvider stringProvider = MapleDataProviderFactory.getDataProvider(stringFile);
         final MapleData pet = stringProvider.getData("Pet.img");
         final String output = args[0];

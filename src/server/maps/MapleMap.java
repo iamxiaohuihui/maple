@@ -2832,13 +2832,14 @@ public class MapleMap
     public void AutoNx( int dy) {
 //       Boolean a = Boolean.parseBoolean(System.getProperty("HuaiMS.AutoMessage"));
         for (final MapleCharacter chr : this.characters) {
-            dy = Randomizer.rand(1, 10);
-            chr.modifyCSPoints(2, dy);
-            chr.modifyCSPoints(1, dy);
+            dy = Randomizer.rand(1, 5);
+//            chr.modifyCSPoints(2, dy);
+//            chr.modifyCSPoints(1, dy);
             chr.gainExp(chr.getLevel() * dy, true, false, true);
 //               chr.getClient().getSession().write(MaplePacketCreator.serverNotice(5, "[系统奖励] 随机获得[" + dy + "] 点券奖励!"));
 //               chr.getClient().getSession().write(MaplePacketCreator.serverNotice(5, "[系统奖励] 随机获得[" + dy + "] 抵用奖励!"));
-            chr.getClient().getSession().write(MaplePacketCreator.serverNotice(5, "[系统奖励] 随机获得[" + dy + "] 点券 和[" + dy + "] 抵用奖励! 挂机获得[" + chr.getLevel() * dy + "] 经验!"));
+               chr.getClient().getSession().write(MaplePacketCreator.serverNotice(5, "[系统奖励] 随机获得[" + chr.getLevel() * dy + "] 经验!"));
+//            chr.getClient().getSession().write(MaplePacketCreator.serverNotice(5, "[系统奖励] 随机获得[" + dy + "] 点券 和[" + dy + "] 抵用奖励! 挂机获得[" + chr.getLevel() * dy + "] 经验!"));
         }
     }
     

@@ -19,7 +19,7 @@ public class FixShopItemsPrice
     }
     
     public static void main(final String[] args) {
-        System.setProperty("wzpath", System.getProperty("wzpath"));
+        System.setProperty("wzPath", System.getProperty("wzPath"));
         final FixShopItemsPrice i = new FixShopItemsPrice();
         System.out.println("正在加载道具数据......");
         MapleItemInformationProvider.getInstance().load();

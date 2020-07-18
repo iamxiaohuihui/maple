@@ -166,21 +166,24 @@ public class CharLoginHandler
     public static void CreateChar(final SeekableLittleEndianAccessor slea, final MapleClient c) {
         final String name = slea.readMapleAsciiString();
         final int JobType = slea.readInt();
-        final boolean mxj = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.冒险家", "false"));
-        final boolean qst = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.骑士团", "false"));
-        final boolean zs = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.战神", "false"));
+        //冒险家
+        final boolean mxj = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.mxj"));
+        //骑士团
+        final boolean qst = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.qst"));
+        //战神
+        final boolean zs = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.zs"));
         if (!qst && JobType == 0) {
-            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放骑士团职业！"));
+            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放骑士团职业！,请联系GM开放"));
             c.getSession().write(LoginPacket.getLoginFailed(1));
             return;
         }
         if (!mxj && JobType == 1) {
-            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放冒险家职业！"));
+            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放冒险家职业！,请联系GM开放"));
             c.getSession().write(LoginPacket.getLoginFailed(1));
             return;
         }
         if (!zs && JobType == 2) {
-            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放战神职业！"));
+            c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放战神职业！,请联系GM开放"));
             c.getSession().write(LoginPacket.getLoginFailed(1));
             return;
         }

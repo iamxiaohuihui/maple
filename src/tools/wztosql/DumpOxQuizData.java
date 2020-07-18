@@ -31,7 +31,7 @@ public class DumpOxQuizData
     }
     
     public void dumpOxData() throws SQLException {
-        final MapleDataProvider stringProvider = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
+        final MapleDataProvider stringProvider = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
         final MapleData ox = stringProvider.getData("OXQuiz.img");
         PreparedStatement ps = this.con.prepareStatement("DELETE FROM `wz_oxdata`");
         ps.execute();

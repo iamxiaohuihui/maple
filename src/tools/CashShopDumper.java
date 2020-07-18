@@ -143,6 +143,6 @@ public class CashShopDumper
     }
     
     static {
-        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Etc.wz"));
+        data = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Etc.wz"));
     }
 }

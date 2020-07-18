@@ -121,7 +121,7 @@ public class MapleShop
                             }
                             MapleInventoryManipulator.addById(c, itemId, quantity, (byte)0);
                         }
-                        c.getPlayer().dropMessage(1, "购买成功.\r\n消费：" + price + "豆豆中奖次数！\r\n剩余：" + c.getPlayer().getddj() + "豆豆中奖次数！");
+                        c.getPlayer().dropMessage(1, "购买成功.\r\n消费：" + price + System.getProperty("server_name")+"中奖次数！\r\n剩余：" + c.getPlayer().getddj() + "豆豆中奖次数！");
                     }
                     else {
                         c.getPlayer().dropMessage(1, "请留出足够的背包空间！");

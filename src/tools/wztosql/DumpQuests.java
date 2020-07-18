@@ -29,7 +29,7 @@ public class DumpQuests
         this.id = 0;
         this.con = DatabaseConnection.getConnection();
         this.update = update;
-        this.quest = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Quest.wz"));
+        this.quest = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Quest.wz"));
         if (this.quest == null) {
             this.hadError = true;
         }

@@ -21,13 +21,14 @@ public class SkillFactory
     private static final Map<Integer, SummonSkillEntry> SummonSkillInformation;
     private static final MapleData stringData;
     private static final MapleDataProvider datasource;
-    
+
+
     public static ISkill getSkill(final int id) {
         if (SkillFactory.skills.size() != 0) {
             return SkillFactory.skills.get(id);
         }
         System.out.println("加载 技能完成 :::");
-        final MapleDataProvider datasource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz"));
+        final MapleDataProvider datasource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Skill.wz"));
         final MapleDataDirectoryEntry root = datasource.getRoot();
         for (final MapleDataFileEntry topDir : root.getFiles()) {
             if (topDir.getName().length() <= 8) {
@@ -117,7 +118,7 @@ public class SkillFactory
         skills = new HashMap<Integer, ISkill>();
         skillsByJob = new HashMap<Integer, List<Integer>>();
         SummonSkillInformation = new HashMap<Integer, SummonSkillEntry>();
-        stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")).getData("Skill.img");
-        datasource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz"));
+        stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/String.wz")).getData("Skill.img");
+        datasource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Skill.wz"));
     }
 }

@@ -12,7 +12,7 @@ import provider.MapleDataProviderFactory;
 public class WzStringDumper装备数据
 {
     public static void main(final String[] args) throws FileNotFoundException, IOException {
-        final File stringFile = MapleDataProviderFactory.fileInWZPath("string.wz");
+        final File stringFile = MapleDataProviderFactory.fileInwzPath("string.wz");
         final MapleDataProvider stringProvider = MapleDataProviderFactory.getDataProvider(stringFile);
         final MapleData cash = stringProvider.getData("Cash.img");
         final MapleData consume = stringProvider.getData("Consume.img");

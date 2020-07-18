@@ -48,7 +48,7 @@ public class MobAttackInfoFactory
     
     static {
         instance = new MobAttackInfoFactory();
-        dataSource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Mob.wz"));
+        dataSource = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Mob.wz"));
         mobAttacks = new HashMap<Pair<Integer, Integer>, MobAttackInfo>();
     }
 }

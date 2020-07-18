@@ -25,7 +25,7 @@ public class MapleCarnivalFactory
     public MapleCarnivalFactory() {
         this.skills = new HashMap<Integer, MCSkill>();
         this.guardians = new HashMap<Integer, MCSkill>();
-        this.dataRoot = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Skill.wz"));
+        this.dataRoot = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Skill.wz"));
         this.initialize();
     }
     

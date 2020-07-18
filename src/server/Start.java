@@ -47,7 +47,9 @@ public class Start
     private static final int srvPort = 6350;
     private MapleClient c;
 //    private static String homePath="/root/079server/";
-    private static String homePath="D:/workspace/game/oringinV6/079sever/";
+//    private static String homePath="D:/workspace/game/oringinV6/079sever/";
+    private static String homePath="E:/game/2020mxd079/079sever/";
+    private static String scriptePath="E:/workspace/github/scripts/";
 //    private static String homePath="C:/Users/Administrator/Desktop/079sever/";
 
     public static void main(final String[] args) throws InterruptedException {
@@ -55,19 +57,14 @@ public class Start
         System.setProperty("server_property_db_path",homePath+"db.properties");
         System.setProperty("server_property_shop_path",homePath+"shop.properties");
         System.setProperty("server_property_fish_path",homePath+"fish.properties");
-        System.setProperty("wzpath",homePath+"wz");
-        System.setProperty("server_path",homePath);
+        System.setProperty("wzPath",scriptePath+"wz");
+        System.setProperty("scripts_path",homePath);
+        System.setProperty("server_name","寻梦");
         OtherSettings.getInstance();
         Start.instance.run();
     }
     
     public void run() throws InterruptedException {
-        System.setProperty("server_property_file_path",homePath+"server.properties");
-        System.setProperty("server_property_db_path",homePath+"db.properties");
-        System.setProperty("server_property_shop_path",homePath+"shop.properties");
-        System.setProperty("server_property_fish_path",homePath+"fish.properties");
-        System.setProperty("wzpath",homePath+"wz");
-        System.setProperty("server_path",homePath);
         final long start = System.currentTimeMillis();
         checkSingleInstance();
         if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Admin"))) {
@@ -87,7 +84,7 @@ public class Start
         catch (SQLException ex) {
             throw new RuntimeException("[数据库异常] 请检查数据库链接。目前无法连接到MySQL数据库.");
         }
-        System.out.println("小豆豆服务端 开始启动...版本号：079H3 2020-03-03");
+        System.out.println("服务端 开始启动...版本号：079H3 2020-03-03");
         System.out.println("当前操作系统: " + System.getProperty("sun.desktop"));
         System.out.println("服务器地址: " + ServerProperties.getProperty("HuaiMS.IP") + ":" + LoginServer.PORT);
         System.out.println("游戏版本: " + ServerConstants.MAPLE_TYPE + " v." + ServerConstants.MAPLE_VERSION + "." + ServerConstants.MAPLE_PATCH);

@@ -78,7 +78,7 @@ public class QuestDropCreator
     }
     
     public static void loadQuests() {
-        QuestDropCreator.questData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Quest.wz"));
+        QuestDropCreator.questData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzPath") + "/Quest.wz"));
         QuestDropCreator.requirements = QuestDropCreator.questData.getData("Check.img");
         QuestDropCreator.info = QuestDropCreator.questData.getData("QuestInfo.img");
         for (final MapleData quest : QuestDropCreator.info.getChildren()) {
