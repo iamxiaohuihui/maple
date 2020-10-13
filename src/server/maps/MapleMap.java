@@ -2830,7 +2830,7 @@ public class MapleMap
     }
     
     public void AutoNx( int dy) {
-//       Boolean a = Boolean.parseBoolean(System.getProperty("HuaiMS.AutoMessage"));
+//       Boolean a = Boolean.parseBoolean(System.getProperty("RoyMS.AutoMessage"));
         for (final MapleCharacter chr : this.characters) {
             dy = Randomizer.rand(1, 5);
 //            chr.modifyCSPoints(2, dy);

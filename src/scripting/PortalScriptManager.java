@@ -1,23 +1,23 @@
 package scripting;
 
 import client.MapleClient;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import server.MaplePortal;
+import tools.FileoutputUtil;
+
 import javax.script.Compilable;
 import javax.script.CompiledScript;
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
-import server.MaplePortal;
-import tools.FileoutputUtil;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PortalScriptManager
 {
@@ -38,7 +38,8 @@ public class PortalScriptManager
             this.scripts.clear();
             return this.scripts.get(scriptName);
         }
-        final File scriptFile = new File("scripts/portal/" + scriptName + ".js");
+        String scriptsPath = System.getProperty("scripts_path");
+        final File scriptFile = new File(scriptsPath+"scripts"+File.separator+"portal"+File.separator + scriptName + ".js");
         if (!scriptFile.exists()) {
             return null;
         }

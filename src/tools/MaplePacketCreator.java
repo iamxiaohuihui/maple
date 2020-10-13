@@ -88,7 +88,7 @@ public class MaplePacketCreator
         mplew.writeShort(SendPacketOpcode.SERVER_IP.getValue());
         mplew.writeShort(0);
         try {
-            mplew.write(InetAddress.getByName(ServerProperties.getProperty("HuaiMS.IP")).getAddress());
+            mplew.write(InetAddress.getByName(ServerProperties.getProperty("RoyMS.IP")).getAddress());
         }
         catch (UnknownHostException e) {
             System.out.println("登录服务器IP：" + e);
@@ -111,7 +111,7 @@ public class MaplePacketCreator
         mplew.writeShort(SendPacketOpcode.CHANGE_CHANNEL.getValue());
         mplew.write(1);
         try {
-            mplew.write(InetAddress.getByName(ServerProperties.getProperty("HuaiMS.IP")).getAddress());
+            mplew.write(InetAddress.getByName(ServerProperties.getProperty("RoyMS.IP")).getAddress());
         }
         catch (UnknownHostException ex) {}
         mplew.writeShort(port);

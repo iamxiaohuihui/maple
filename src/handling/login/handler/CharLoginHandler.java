@@ -58,7 +58,7 @@ public class CharLoginHandler
         final boolean macBan = c.isBannedMac(macData);
         final boolean banned = ipBan || macBan || 防万能;
         int loginok = 0;
-        if (!Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.AutoRegister")) || !AutoRegister.autoRegister || AutoRegister.getAccountExists(login) || banned) {
+        if (!Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.AutoRegister")) || !AutoRegister.autoRegister || AutoRegister.getAccountExists(login) || banned) {
             AutoRegister.success = true;
             AutoRegister.mac = true;
             loginok = c.login(login, pwd, ipBan || macBan || 防万能);
@@ -167,11 +167,11 @@ public class CharLoginHandler
         final String name = slea.readMapleAsciiString();
         final int JobType = slea.readInt();
         //冒险家
-        final boolean mxj = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.mxj"));
+        final boolean mxj = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.mxj"));
         //骑士团
-        final boolean qst = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.qst"));
+        final boolean qst = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.qst"));
         //战神
-        final boolean zs = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.zs"));
+        final boolean zs = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.zs"));
         if (!qst && JobType == 0) {
             c.getSession().write(MaplePacketCreator.serverNotice(1, "暂未开放骑士团职业！,请联系GM开放"));
             c.getSession().write(LoginPacket.getLoginFailed(1));

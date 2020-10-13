@@ -2,6 +2,8 @@ package scripting;
 
 import client.MapleClient;
 import database.DatabaseConnection;
+
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,7 +36,7 @@ public class ReactorScriptManager extends AbstractScriptManager
             if (c.getPlayer().isGM()) {
                 c.getPlayer().dropMessage("[系统提示]您已经建立与reactor:" + reactor.getReactorId() + "的对话。");
             }
-            final Invocable iv = this.getInvocable("reactor/" + reactor.getReactorId() + ".js", c);
+            final Invocable iv = this.getInvocable("reactor"+ File.separator + reactor.getReactorId() + ".js", c);
             if (iv == null) {
                 return;
             }

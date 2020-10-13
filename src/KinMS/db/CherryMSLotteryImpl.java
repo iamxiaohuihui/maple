@@ -169,15 +169,15 @@ public class CherryMSLotteryImpl implements CherryMSLottery
                 if (charType == 2) {
                     toucount2++;
                     if (this.zjNum == 1 || this.zjNum == 3 || (this.zjNum == 5 && charNum == 1) || this.zjNum == 2 || this.zjNum == 4 || (this.zjNum == 6 && charNum == 2)) {
-                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博A赔率", "2"));
-                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博手续费", "5")) / 100;
+                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博A赔率", "2"));
+                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博手续费", "5")) / 100;
                         chr.modifyCSPoints(1, charZhuNX);
                         chr.dropMessage(1, "本期号码：【" + this.zjNum + "】 \r\n恭喜你获奖了。扣除手续费5%。获得奖金额:" + charZhuNX);
                         peiNX += charZhuNX;
                         zjNames6 = zjNames6 + chr.getName() + ":赢得" + peiNX + "点卷 ";
                         zhongcount2++;
                         zjpeople++;
-                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博A赔率", "2")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
+                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博A赔率", "2")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
                     } else {
                         chr.dropMessage(1, "本期号码：【" + this.zjNum + "】\r\n对不起您没有中奖，请继续努力");
                     }
@@ -185,15 +185,15 @@ public class CherryMSLotteryImpl implements CherryMSLottery
                 if (charType == 3) {
                     toucount3++;
                     if ((this.zjNum > 4 && charNum > 4) || (this.zjNum < 3 && charNum < 3) || (this.zjNum >= 3 && this.zjNum <= 4 && charNum <= 4 && charNum >= 3)) {
-                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博B赔率", "3"));
-                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博手续费", "5")) / 100;
+                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博B赔率", "3"));
+                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博手续费", "5")) / 100;
                         chr.modifyCSPoints(1, charZhuNX);
                         chr.dropMessage(1, "本期号码：【" + this.zjNum + "】 \r\n恭喜你获奖了。扣除手续费5%。获得奖金额:" + charZhuNX);
                         peiNX += charZhuNX;
                         zjNames6 = zjNames6 + chr.getName() + ":赢得" + peiNX + "点卷 ";
                         zhongcount3++;
                         zjpeople++;
-                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博B赔率", "3")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
+                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博B赔率", "3")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
                     } else {
                         chr.dropMessage(1, "本期号码：【" + this.zjNum + "】\r\n对不起您没有中奖，请继续努力");
                     }
@@ -201,15 +201,15 @@ public class CherryMSLotteryImpl implements CherryMSLottery
                 if (charType == 6) {
                     toucount6++;
                     if (this.zjNum == charNum) {
-                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博C赔率", "6"));
-                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博手续费", "5")) / 100;
+                        charZhuNX *= Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博C赔率", "6"));
+                        charZhuNX -= charZhuNX * Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博手续费", "5")) / 100;
                         chr.modifyCSPoints(1, charZhuNX);
                         chr.dropMessage(1, "本期号码：【" + this.zjNum + "】 \r\n恭喜你获奖了。扣除手续费5%。获得奖金额:" + charZhuNX);
                         peiNX += charZhuNX;
                         zjNames6 = zjNames6 + chr.getName() + ":赢得" + peiNX + "点卷 ";
                         zhongcount6++;
                         zjpeople++;
-                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.赌博C赔率", "6")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
+                        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, "[赌博系统]" + Integer.parseInt(ServerProperties.getProperty("RoyMS.赌博C赔率", "6")) + "倍中奖名单:" + zjNames6 + "！恭喜他(她)吧"));
                         continue;
                     }
                     chr.dropMessage(1, "本期号码：【" + this.zjNum + "】\r\n对不起您没有中奖，请继续努力");
@@ -222,7 +222,7 @@ public class CherryMSLotteryImpl implements CherryMSLottery
         int peoplecount = 0;
         if (drawchars != null)
             peoplecount = drawchars.size();
-        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, ServerProperties.getProperty("HuaiMS.赌博公告")));
+        getChannelServer().broadcastPacket(MaplePacketCreator.serverNotice(6, ServerProperties.getProperty("RoyMS.赌博公告")));
         if ("".equals(zjNames6));
     }
 

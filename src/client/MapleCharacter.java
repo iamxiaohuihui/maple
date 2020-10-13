@@ -3468,7 +3468,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
         try {
             final int prevexp = this.getExp();
             int needed = GameConstants.getExpNeededForLevel(this.level);
-            if (this.level >= Integer.parseInt(ServerProperties.getProperty("HuaiMS.MLevel")) || (GameConstants.isKOC(this.job) && this.level >= Integer.parseInt(ServerProperties.getProperty("HuaiMS.QLevel")))) {
+            if (this.level >= Integer.parseInt(ServerProperties.getProperty("RoyMS.MLevel")) || (GameConstants.isKOC(this.job) && this.level >= Integer.parseInt(ServerProperties.getProperty("RoyMS.QLevel")))) {
                 if (this.exp + total > needed) {
                     this.setExp(needed);
                 }
@@ -3559,7 +3559,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements Se
             totalExp = 2147483647L;
         }
         int needed = GameConstants.getExpNeededForLevel(this.level);
-        if (this.level >= Integer.parseInt(ServerProperties.getProperty("HuaiMS.MLevel")) || (GameConstants.isKOC(this.job) && this.level >= Integer.parseInt(ServerProperties.getProperty("HuaiMS.QLevel")))) {
+        if (this.level >= Integer.parseInt(ServerProperties.getProperty("RoyMS.MLevel")) || (GameConstants.isKOC(this.job) && this.level >= Integer.parseInt(ServerProperties.getProperty("RoyMS.QLevel")))) {
             if (this.exp + totalExp > needed) {
                 this.setExp(needed);
             }

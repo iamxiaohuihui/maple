@@ -103,7 +103,7 @@ public class DatabaseConnection
         if (!DatabaseConnection.propsInited) {
             try {
                 String path = System.getProperty("server_property_db_path");
-                System.out.println("load db pro");
+//                System.out.println("load db pro"+path);
                 final FileReader fR = new FileReader(path);
                 DatabaseConnection.dbProps.load(fR);
                 fR.close();
@@ -111,9 +111,9 @@ public class DatabaseConnection
             catch (IOException ex) {
                 throw new DatabaseException(ex);
             }
-            DatabaseConnection.dbDriver = DatabaseConnection.dbProps.getProperty("driver");
+            DatabaseConnection.dbDriver = DatabaseConnection.dbProps.getProperty("driverClassName");
             DatabaseConnection.dbUrl = DatabaseConnection.dbProps.getProperty("url");
-            DatabaseConnection.dbUser = DatabaseConnection.dbProps.getProperty("user");
+            DatabaseConnection.dbUser = DatabaseConnection.dbProps.getProperty("username");
             DatabaseConnection.dbPass = DatabaseConnection.dbProps.getProperty("password");
             try {
                 DatabaseConnection.connectionTimeOut = Long.parseLong(DatabaseConnection.dbProps.getProperty("timeout"));

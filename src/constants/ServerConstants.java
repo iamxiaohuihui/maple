@@ -96,10 +96,10 @@ public class ServerConstants
         ServerConstants.MTS_TAX = 10;
         ServerConstants.MTS_MESO = 5000;
         ServerConstants.CHANNEL_COUNT = 200;
-        ServerConstants.封包显示 = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.封包显示", "false"));
-        ServerConstants.调试输出封包 = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.调试输出封包", "false"));
-        ServerConstants.自动注册 = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.AutoRegister", "false"));
-        ServerConstants.PACKET_ERROR_OFF = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.记录38错误", "false"));
+        ServerConstants.封包显示 = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.封包显示", "false"));
+        ServerConstants.调试输出封包 = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.调试输出封包", "false"));
+        ServerConstants.自动注册 = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.AutoRegister", "false"));
+        ServerConstants.PACKET_ERROR_OFF = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.记录38错误", "false"));
         ServerConstants.Super_password = false;
         ServerConstants.clientAutoDisconnect = true;
         ServerConstants.superpw = "";

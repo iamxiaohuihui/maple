@@ -27,7 +27,7 @@ public abstract class AbstractScriptManager {
         InputStream fr = null;
         try {
            String serverPath = System.getProperty("scripts_path");
-            path = serverPath +"scripts/" + path;
+            path = serverPath +"scripts"+File.separator + path;
             ScriptEngine engine = null;
             if (c != null) {
                 engine = c.getScriptEngine(path);

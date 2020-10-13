@@ -7,7 +7,7 @@ import constants.GameConstants;
 import constants.OtherSettings;
 import constants.ServerConstants;
 import database.DatabaseConnection;
-import gui.HuaiMS;
+import gui.RoyMS;
 import handling.MapleServerHandler;
 import handling.cashshop.CashShopServer;
 import handling.channel.ChannelServer;
@@ -40,26 +40,24 @@ import tools.StringUtil;
 public class Start
 {
     public static boolean Check;
-    private static HuaiMS CashGui;
+    private static RoyMS CashGui;
     public static Start instance;
     private static int maxUsers;
     private static ServerSocket srvSocket;
     private static final int srvPort = 6350;
     private MapleClient c;
-//    private static String homePath="/root/079server/";
-//    private static String homePath="D:/workspace/game/oringinV6/079sever/";
-    private static String homePath="E:/game/2020mxd079/079sever/";
-    private static String scriptePath="E:/workspace/github/scripts/";
-//    private static String homePath="C:/Users/Administrator/Desktop/079sever/";
 
     public static void main(final String[] args) throws InterruptedException {
-        System.setProperty("server_property_file_path",homePath+"server.properties");
-        System.setProperty("server_property_db_path",homePath+"db.properties");
-        System.setProperty("server_property_shop_path",homePath+"shop.properties");
-        System.setProperty("server_property_fish_path",homePath+"fish.properties");
-        System.setProperty("wzPath",scriptePath+"wz");
-        System.setProperty("scripts_path",homePath);
-        System.setProperty("server_name","寻梦");
+        String homePath = System.getProperty("homePath");
+        String scriptsPath = System.getProperty("scriptsPath");
+        String wzPath = System.getProperty("wzPath");
+        System.setProperty("server_property_file_path", homePath + "server.properties");
+        System.setProperty("server_property_db_path", homePath + "db.properties");
+        System.setProperty("server_property_shop_path", homePath + "shop.properties");
+        System.setProperty("server_property_fish_path", homePath + "fish.properties");
+        System.setProperty("wzPath", wzPath);
+        System.setProperty("scripts_path", scriptsPath);
+        System.setProperty("server_name", "寻梦");
         OtherSettings.getInstance();
         Start.instance.run();
     }
@@ -67,10 +65,10 @@ public class Start
     public void run() throws InterruptedException {
         final long start = System.currentTimeMillis();
         checkSingleInstance();
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Admin"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.Admin"))) {
             printSection("[!!! 已开启只能管理员登录模式 !!!]");
         }
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.AutoRegister"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.AutoRegister"))) {
             System.out.println("加载 自动注册完成 :::");
         }
         try {
@@ -84,9 +82,9 @@ public class Start
         catch (SQLException ex) {
             throw new RuntimeException("[数据库异常] 请检查数据库链接。目前无法连接到MySQL数据库.");
         }
-        System.out.println("服务端 开始启动...版本号：079H3 2020-03-03");
+        System.out.println("服务端 开始启动...版本号：079H3 2020-10-13");
         System.out.println("当前操作系统: " + System.getProperty("sun.desktop"));
-        System.out.println("服务器地址: " + ServerProperties.getProperty("HuaiMS.IP") + ":" + LoginServer.PORT);
+        System.out.println("服务器地址: " + ServerProperties.getProperty("RoyMS.IP") + ":" + LoginServer.PORT);
         System.out.println("游戏版本: " + ServerConstants.MAPLE_TYPE + " v." + ServerConstants.MAPLE_VERSION + "." + ServerConstants.MAPLE_PATCH);
         System.out.println("主服务器: 蓝蜗牛");
         World.init();
@@ -106,11 +104,11 @@ public class Start
         memoryRecical(10);
         MapleServerHandler.registerMBean();
         LoginServer.setOn();
-        System.out.println("\r\n经验倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Exp")) + "  物品倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Drop")) + "  金币倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Meso")) + "  BOSS爆率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.BDrop")));
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.检测复制装备", "false"))) {
+        System.out.println("\r\n经验倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Exp")) + "  物品倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Drop")) + "  金币倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Meso")) + "  BOSS爆率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.BDrop")));
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.检测复制装备", "false"))) {
             checkCopyItemFromSql();
         }
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.防万能检测", "false"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.防万能检测", "false"))) {
             System.out.println("启动防万能检测");
             startCheck();
         }
@@ -119,6 +117,11 @@ public class Start
         final long ms = now % 1000L;
         System.out.println("加载完成, 耗时: " + seconds + "秒" + ms + "毫秒\r\n");
 //        CashGui();
+        Boolean loadGui = Boolean.valueOf(ServerProperties.getProperty("RoyMS.loadGui","false"));
+        if(loadGui){
+            System.out.println("加载GUI工具");
+            CashGui();
+        }
     }
     
     public static void runThread() {
@@ -305,12 +308,12 @@ public class Start
         final long start = System.currentTimeMillis();
         checkSingleInstance();
         System.out.println("======================================");
-        System.out.println(ServerProperties.getProperty("HuaiMS.Admin"));
+        System.out.println(ServerProperties.getProperty("RoyMS.Admin"));
         System.out.println("========================");
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Admin"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.Admin"))) {
             printSection("[!!! 已开启只能管理员登录模式 !!!]");
         }
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.AutoRegister"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.AutoRegister"))) {
             System.out.println("加载 自动注册完成 :::");
         }
         try (final PreparedStatement ps = DatabaseConnection.getConnection().prepareStatement("UPDATE accounts SET loggedin = 0")) {
@@ -321,9 +324,9 @@ public class Start
         }
         System.out.println("服务端 开始启动...");
         System.out.println("当前操作系统: " + System.getProperty("sun.desktop"));
-        System.out.println("服务器地址: " + ServerProperties.getProperty("HuaiMS.IP") + ":" + LoginServer.PORT);
+        System.out.println("服务器地址: " + ServerProperties.getProperty("RoyMS.IP") + ":" + LoginServer.PORT);
         System.out.println("游戏版本: " + ServerConstants.MAPLE_TYPE + " v." + ServerConstants.MAPLE_VERSION + "." + ServerConstants.MAPLE_PATCH);
-        System.out.println("主服务器: 蓝蜗牛");
+        System.out.println("作者Roy: 游戏仅供学习和娱乐，禁止用于商业用途");
         World.init();
         runThread();
         loadData();
@@ -341,11 +344,11 @@ public class Start
         memoryRecical(360);
         MapleServerHandler.registerMBean();
         LoginServer.setOn();
-        System.out.println("\r\n经验倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Exp")) + "  物品倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Drop")) + "  金币倍率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.Meso")) + "  BOSS爆率：" + Integer.parseInt(ServerProperties.getProperty("HuaiMS.BDrop")));
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.检测复制装备", "false"))) {
+        System.out.println("\r\n经验倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Exp")) + "  物品倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Drop")) + "  金币倍率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.Meso")) + "  BOSS爆率：" + Integer.parseInt(ServerProperties.getProperty("RoyMS.BDrop")));
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.检测复制装备", "false"))) {
             checkCopyItemFromSql();
         }
-        if (Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.防万能检测", "false"))) {
+        if (Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.防万能检测", "false"))) {
             System.out.println("启动防万能检测");
             startCheck();
         }
@@ -360,7 +363,7 @@ public class Start
         if (Start.CashGui != null) {
             Start.CashGui.dispose();
         }
-        (Start.CashGui = new HuaiMS()).setVisible(true);
+        (Start.CashGui = new RoyMS()).setVisible(true);
     }
 
     //在线统计

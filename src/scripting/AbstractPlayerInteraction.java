@@ -2124,7 +2124,7 @@ public abstract class AbstractPlayerInteraction
     }
     
     public String getServerName() {
-        return ServerProperties.getProperty("HuaiMS.ServerName");
+        return ServerProperties.getProperty("RoyMS.ServerName");
     }
     
     public static int 获取最高玩家等级() {

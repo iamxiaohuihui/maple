@@ -37,10 +37,8 @@ public class ServerProperties
     static {
         ServerProperties.showPacket = true;
         ServerProperties.props = new Properties();
-//        ServerProperties.toLoad = new String[] { "HuaiMS_服务端配置.properties" };
             try {
                 String path = System.getProperty("server_property_file_path");
-                System.out.println("load server_file property:"+path);
                 final InputStreamReader fr = new InputStreamReader(new FileInputStream(path), "UTF-8");
                 ServerProperties.props.load(fr);
                 fr.close();

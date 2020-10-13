@@ -1004,7 +1004,7 @@ public class MapleServerHandler extends IoHandlerAdapter implements MapleServerH
         MapleServerHandler.nl = System.getProperty("line.separator");
         MapleServerHandler.loggedIPs = new File("Logs/LogIPs.txt");
         MapleServerHandler.logIPMap = new HashMap<String, FileWriter>();
-        MapleServerHandler.debugMode = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Debug", "false"));
+        MapleServerHandler.debugMode = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.Debug", "false"));
         MapleServerHandler.blocked = EnumSet.noneOf(RecvPacketOpcode.class);
         MapleServerHandler.Log_Size = 10000;
         MapleServerHandler.Packet_Log = new ArrayList<LoggedPacket>(MapleServerHandler.Log_Size);

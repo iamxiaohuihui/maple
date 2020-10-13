@@ -1,6 +1,8 @@
 package scripting;
 
 import handling.channel.ChannelServer;
+
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -22,7 +24,7 @@ public class EventScriptManager extends AbstractScriptManager
         this.runningInstanceMapId = new AtomicInteger(0);
         for (final String script : scripts) {
             if (!script.equals("")) {
-                final Invocable iv = this.getInvocable("event/" + script + ".js", null);
+                final Invocable iv = this.getInvocable("event"+ File.separator + script + ".js", null);
                 if (iv != null) {
                     this.events.put(script, new EventEntry(script, iv, new EventManager(cserv, iv, script)));
                 }

@@ -114,7 +114,7 @@ public class ChannelServer implements Serializable
     
     public static void startChannel_Main() {
         ChannelServer.serverStartTime = System.currentTimeMillis();
-        int ch = Integer.parseInt(ServerProperties.getProperty("HuaiMS.Count", "0"));
+        int ch = Integer.parseInt(ServerProperties.getProperty("RoyMS.Count", "0"));
         if (ch > 10) {
             ch = 10;
         }
@@ -125,7 +125,7 @@ public class ChannelServer implements Serializable
     
     public static void startChannel(final int channel) {
         ChannelServer.serverStartTime = System.currentTimeMillis();
-        for (int i = 0; i < Integer.parseInt(ServerProperties.getProperty("HuaiMS.Count", "0")); ++i) {
+        for (int i = 0; i < Integer.parseInt(ServerProperties.getProperty("RoyMS.Count", "0")); ++i) {
             if (channel == i + 1) {
                 newInstance(i + 1).run_startup_configurations();
                 break;
@@ -282,20 +282,20 @@ public class ChannelServer implements Serializable
     public void run_startup_configurations() {
         this.setChannel(this.channel);
         try {
-            this.expRate = Integer.parseInt(ServerProperties.getProperty("HuaiMS.Exp"));
-            this.mesoRate = Integer.parseInt(ServerProperties.getProperty("HuaiMS.Meso"));
-            this.dropRate = Integer.parseInt(ServerProperties.getProperty("HuaiMS.Drop"));
-            this.BossdropRate = Integer.parseInt(ServerProperties.getProperty("HuaiMS.BDrop"));
-            this.cashRate = Integer.parseInt(ServerProperties.getProperty("HuaiMS.Cash"));
-            this.serverMessage = ServerProperties.getProperty("HuaiMS.EventMessage");
-            this.serverName = ServerProperties.getProperty("HuaiMS.ServerName");
-            this.flags = Integer.parseInt(ServerProperties.getProperty("HuaiMS.WFlags", "0"));
-            this.adminOnly = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Admin", "false"));
-            this.eventSM = new EventScriptManager(this, ServerProperties.getProperty("HuaiMS.Events").split(","));
-            this.port = Short.parseShort(ServerProperties.getProperty("HuaiMS.Port" + this.channel, String.valueOf(2524 + this.channel)));
-            this.warpcsshop = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.warpcsshop", "false"));
-            this.warpmts = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.warpmts", "false"));
-            this.ip = ServerProperties.getProperty("HuaiMS.IP") +":"+ this.port;
+            this.expRate = Integer.parseInt(ServerProperties.getProperty("RoyMS.Exp"));
+            this.mesoRate = Integer.parseInt(ServerProperties.getProperty("RoyMS.Meso"));
+            this.dropRate = Integer.parseInt(ServerProperties.getProperty("RoyMS.Drop"));
+            this.BossdropRate = Integer.parseInt(ServerProperties.getProperty("RoyMS.BDrop"));
+            this.cashRate = Integer.parseInt(ServerProperties.getProperty("RoyMS.Cash"));
+            this.serverMessage = ServerProperties.getProperty("RoyMS.EventMessage");
+            this.serverName = ServerProperties.getProperty("RoyMS.ServerName");
+            this.flags = Integer.parseInt(ServerProperties.getProperty("RoyMS.WFlags", "0"));
+            this.adminOnly = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.Admin", "false"));
+            this.eventSM = new EventScriptManager(this, ServerProperties.getProperty("RoyMS.Events").split(","));
+            this.port = Short.parseShort(ServerProperties.getProperty("RoyMS.Port" + this.channel, String.valueOf(2524 + this.channel)));
+            this.warpcsshop = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.warpcsshop", "false"));
+            this.warpmts = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.warpmts", "false"));
+            this.ip = ServerProperties.getProperty("RoyMS.IP") +":"+ this.port;
 //            this.ip = "49.235.142.128:"+ this.port;
         }
         catch (NumberFormatException e) {
@@ -446,7 +446,7 @@ public class ChannelServer implements Serializable
     
     public void reloadEvents() {
         this.eventSM.cancel();
-        (this.eventSM = new EventScriptManager(this, ServerProperties.getProperty("HuaiMS.Events").split(","))).init();
+        (this.eventSM = new EventScriptManager(this, ServerProperties.getProperty("RoyMS.Events").split(","))).init();
     }
     
     public int getBossDropRate() {

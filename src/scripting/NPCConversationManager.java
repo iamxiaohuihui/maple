@@ -2664,7 +2664,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction
     
     @Override
     public String getServerName() {
-        return ServerProperties.getProperty("HuaiMS.ServerName");
+        return ServerProperties.getProperty("RoyMS.ServerName");
     }
     
     public void 克隆() {

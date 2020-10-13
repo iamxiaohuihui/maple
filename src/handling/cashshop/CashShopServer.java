@@ -31,8 +31,8 @@ public class CashShopServer
     private static boolean finishedShutdown;
     
     public static void run_startup_configurations() {
-        CashShopServer.PORT = Short.parseShort(ServerProperties.getProperty("HuaiMS.CSPort", String.valueOf(DEFAULT_PORT)));
-        CashShopServer.ip = ServerProperties.getProperty("HuaiMS.IP") + ":" + CashShopServer.PORT;
+        CashShopServer.PORT = Short.parseShort(ServerProperties.getProperty("RoyMS.CSPort", String.valueOf(DEFAULT_PORT)));
+        CashShopServer.ip = ServerProperties.getProperty("RoyMS.IP") + ":" + CashShopServer.PORT;
         IoBuffer.setUseDirectBuffer(false);
         IoBuffer.setAllocator(new SimpleBufferAllocator());
         CashShopServer.acceptor = new NioSocketAcceptor();

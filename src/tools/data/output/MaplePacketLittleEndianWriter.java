@@ -34,6 +34,6 @@ public class MaplePacketLittleEndianWriter extends GenericLittleEndianWriter
     }
     
     static {
-        MaplePacketLittleEndianWriter.debugMode = Boolean.parseBoolean(ServerProperties.getProperty("HuaiMS.Debug", "false"));
+        MaplePacketLittleEndianWriter.debugMode = Boolean.parseBoolean(ServerProperties.getProperty("RoyMS.Debug", "false"));
     }
 }
