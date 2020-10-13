@@ -56,4 +56,4 @@ out/
 .idea/
 
 # execute file
-*.exe
+*.c
