@@ -205,7 +205,7 @@ public class MapleMapFactory
                     }
                 }
                 this.addAreaBossSpawn(map);
-                map.setCreateMobInterval((short)MapleDataTool.getInt(mapData.getChildByPath("info/createMobInterval"), 9000));
+                map.setCreateMobInterval((short)MapleDataTool.getInt(mapData.getChildByPath("info/createMobInterval"), 2000));
                 map.loadMonsterRate(true);
                 map.setNodes(this.loadNodes(mapid, mapData));
                 if (reactors && mapData.getChildByPath("reactor") != null) {
@@ -375,7 +375,7 @@ public class MapleMapFactory
             }
         }
         this.addAreaBossSpawn(map);
-        map.setCreateMobInterval((short)MapleDataTool.getInt(mapData.getChildByPath("info/createMobInterval"), 9000));
+        map.setCreateMobInterval((short)MapleDataTool.getInt(mapData.getChildByPath("info/createMobInterval"), 2000));
         map.loadMonsterRate(true);
         map.setNodes(this.loadNodes(mapid, mapData));
         if (reactors && mapData.getChildByPath("reactor") != null) {

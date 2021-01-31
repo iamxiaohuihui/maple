@@ -279,7 +279,7 @@ public class World
     }
     
     public static void registerRespawn() {
-        Timer.WorldTimer.getInstance().register(new Respawn(), 5000L);
+        Timer.WorldTimer.getInstance().register(new Respawn(), 1000);
         System.out.println("[刷怪线程] 已经启动...");
     }
     
@@ -306,7 +306,7 @@ public class World
                 handleCooldowns(chr, numTimes, hurt);
             }
         }
-        if (numTimes % 10 == 0 && map.getId() == 220080001 && map.playerCount() == 0) {
+        if (numTimes % 30 == 0 && map.getId() == 220080001 && map.playerCount() == 0) {
             ChannelServer.getInstance(map.getChannel()).getMapFactory().getMap(220080000).resetReactors();
         }
     }

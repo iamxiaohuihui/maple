@@ -57,7 +57,7 @@ public class SpawnPoint extends Spawns
     
     @Override
     public boolean shouldSpawn() {
-        return this.mobTime >= 0 && ((this.mobTime == 0 && !this.immobile) || this.spawnedMonsters.get() <= 0) && this.spawnedMonsters.get() <= 1 && this.nextPossibleSpawn <= System.currentTimeMillis();
+        return this.mobTime >= 0 && ((this.mobTime == 0 && !this.immobile) || this.spawnedMonsters.get() <= 0) && this.spawnedMonsters.get() <= 0 && this.nextPossibleSpawn <= System.currentTimeMillis();
     }
     
     @Override

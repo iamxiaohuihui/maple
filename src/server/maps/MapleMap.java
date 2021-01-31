@@ -141,7 +141,7 @@ public class MapleMap
         this.portals = new HashMap<Integer, MaplePortal>();
         this.footholds = null;
         this.decHP = 0;
-        this.createMobInterval = 9000;
+        this.createMobInterval = 2000;
         this.consumeItemCoolTime = 0;
         this.protectItem = 0;
         this.decHPInterval = 10000;
@@ -2890,8 +2890,8 @@ public class MapleMap
         }
         else {
             final int numShouldSpawn = this.maxRegularSpawn - this.spawnedMonstersOnMap.get();
-            if (numShouldSpawn > 0) {
-                int spawned = 0;
+            if (numShouldSpawn > 0 && this.monsterSpawn.size() > 0) {
+//                int spawned = 0;
                 final List<Spawns> randomSpawn = new ArrayList<Spawns>(this.monsterSpawn);
                 Collections.shuffle(randomSpawn);
                 for (final Spawns spawnPoint2 : randomSpawn) {
@@ -2900,11 +2900,11 @@ public class MapleMap
                     }
                     if (spawnPoint2.shouldSpawn() || GameConstants.isForceRespawn(this.mapid)) {
                         spawnPoint2.spawnMonster(this);
-                        ++spawned;
+//                        ++spawned;
                     }
-                    if (spawned >= numShouldSpawn) {
-                        break;
-                    }
+//                    if (spawned >= numShouldSpawn) {
+//                        break;
+//                    }
                 }
             }
         }
